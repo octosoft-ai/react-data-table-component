@@ -135,6 +135,7 @@ function DataTable<T>(props: TableProps<T>): JSX.Element {
 			rowsPerPage,
 			currentPage,
 			selectedRows,
+			selectedRow,
 			allSelected,
 			selectedCount,
 			selectedColumn,
@@ -146,6 +147,7 @@ function DataTable<T>(props: TableProps<T>): JSX.Element {
 		allSelected: false,
 		selectedCount: 0,
 		selectedRows: [],
+		selectedRow: undefined,
 		selectedColumn: defaultSortColumn,
 		toggleOnSelectedRowsChange: false,
 		sortDirection: defaultSortDirection,
@@ -277,7 +279,12 @@ function DataTable<T>(props: TableProps<T>): JSX.Element {
 	}
 
 	useDidUpdateEffect(() => {
-		onSelectedRowsChange({ allSelected, selectedCount, selectedRows: selectedRows.slice(0) });
+		onSelectedRowsChange({
+			allSelected,
+			selectedCount,
+			selectedRows: selectedRows.slice(0),
+			selectedRow,
+		});
 		// onSelectedRowsChange trigger is controlled by toggleOnSelectedRowsChange state
 	}, [toggleOnSelectedRowsChange]);
 

@@ -69,7 +69,12 @@ export type TableProps<T> = {
 	onRowMouseEnter?: (row: T, e: React.MouseEvent) => void;
 	onRowMouseLeave?: (row: T, e: React.MouseEvent) => void;
 	onRowExpandToggled?: ExpandRowToggled<T>;
-	onSelectedRowsChange?: (selected: { allSelected: boolean; selectedCount: number; selectedRows: T[] }) => void;
+	onSelectedRowsChange?: (selected: {
+		allSelected: boolean;
+		selectedCount: number;
+		selectedRows: T[];
+		selectedRow?: { row: T; isSelected: boolean };
+	}) => void;
 	onSort?: (selectedColumn: TableColumn<T>, sortDirection: SortOrder, sortedRows: T[]) => void;
 	onColumnOrderChange?: (nextOrder: TableColumn<T>[]) => void;
 	pagination?: boolean;
@@ -245,6 +250,7 @@ export type TableState<T> = {
 	contextMessage: ContextMessage;
 	selectedCount: number;
 	selectedRows: T[];
+	selectedRow?: { row: T; isSelected: boolean };
 	selectedColumn: TableColumn<T>;
 	sortDirection: SortOrder;
 	currentPage: number;

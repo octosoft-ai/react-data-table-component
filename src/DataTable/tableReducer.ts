@@ -44,6 +44,7 @@ export function tableReducer<T>(state: TableState<T>, action: Action<T>): TableS
 						selectedCount: 0,
 						allSelected: false,
 						selectedRows: [],
+						selectedRow: { row, isSelected },
 						toggleOnSelectedRowsChange,
 					};
 				}
@@ -53,6 +54,7 @@ export function tableReducer<T>(state: TableState<T>, action: Action<T>): TableS
 					selectedCount: 1,
 					allSelected: false,
 					selectedRows: [row],
+					selectedRow: { row, isSelected },
 					toggleOnSelectedRowsChange,
 				};
 			}
@@ -64,6 +66,7 @@ export function tableReducer<T>(state: TableState<T>, action: Action<T>): TableS
 					selectedCount: state.selectedRows.length > 0 ? state.selectedRows.length - 1 : 0,
 					allSelected: false,
 					selectedRows: removeItem(state.selectedRows, row, keyField),
+					selectedRow: { row, isSelected },
 					toggleOnSelectedRowsChange,
 				};
 			}
@@ -73,6 +76,7 @@ export function tableReducer<T>(state: TableState<T>, action: Action<T>): TableS
 				selectedCount: state.selectedRows.length + 1,
 				allSelected: state.selectedRows.length + 1 === rowCount,
 				selectedRows: insertItem(state.selectedRows, row),
+				selectedRow: { row, isSelected },
 				toggleOnSelectedRowsChange,
 			};
 		}

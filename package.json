@@ -1,6 +1,6 @@
 {
-  "name": "react-data-table-component",
-  "version": "7.5.3",
+  "name": "@octosoft-ai/react-data-table-component",
+  "version": "7.5.5",
   "description": "A simple to use declarative react based data table",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -18,8 +18,11 @@
     "react-data-table",
     "react-data-table-component"
   ],
-  "repository": "https://github.com/jbetancur/react-data-table-component",
-  "author": "jbetancur",
+	"repository": {
+    "type": "git",
+    "url": "git://github.com/octosoft-ai/react-data-table-component.git"
+  },
+  "author": "co-author: pejoccy",
   "license": "Apache-2.0",
   "prepublish": "tsc",
   "scripts": {
